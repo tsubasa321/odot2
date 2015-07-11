@@ -56,5 +56,13 @@ describe User do
       expect(user.save).to be_true
       expect(user.email).to eq("mike@teamtreehouse.com")
     end
+
+    describe "password reset" do
+      let!(:user) { create(:user) }
+      
+      it "changes password_reset_token attribute for user" do
+        expect{user.generate_password_reset_token!}.to change{user.password_reset_token}
+      end 
+    end
   end
 end
