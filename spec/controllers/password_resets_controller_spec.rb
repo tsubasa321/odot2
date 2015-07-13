@@ -16,7 +16,7 @@ describe PasswordResetsController do
 
 		it "generates new password_reset_token for the user" do
 			expect(User).to receive(:find_by).with(email: user.email).and_return(user)
-			expect{ post :create, email: user.email }.to change{user.password_reset_token}
+			expect{ post :create, email: user.email }.to change{user.password_reset_tokenraek}
 		end
 	end
 end
