@@ -13,4 +13,22 @@ class PasswordResetsController < ApplicationController
 			redirect_to new_user_path, notice: "No user found"
 		end
 	end
+
+	def edit
+		@user = User.find_by(password_reset_token: params[:id])
+		if @user
+		
+		else
+			render file: "public/404.html", status: :not_found
+		end
+	end
+
+	def update
+		user = User.find_by(password_reset_token: params[:id])
+		if user
+			
+		else
+
+		end
+	end
 end
